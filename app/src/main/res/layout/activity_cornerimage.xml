@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="50dp">
+
+    <android.simple.toolbox.widget.CornerImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:src="@mipmap/ic_launcher"
+        app:cornerBackground="@color/red"
+        app:cornerText="9"
+        app:cornerTextColor="@color/white"
+        app:cornerTextSize="11dp" />
+
+    <android.simple.toolbox.widget.CornerImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:src="@mipmap/ic_launcher"
+        app:cornerBackground="@color/red"
+        app:cornerText="99"
+        app:cornerTextColor="@color/white"
+        app:cornerTextSize="11dp" />
+
+    <android.simple.toolbox.widget.CornerImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:src="@mipmap/ic_launcher"
+        app:cornerBackground="@color/red"
+        app:cornerText="999"
+        app:cornerTextColor="@color/white"
+        app:cornerTextSize="11dp" />
+
+    <android.simple.toolbox.widget.CornerImageView
+        android:id="@+id/progress_imageview"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:src="@mipmap/ic_launcher"
+        app:cornerBackground="@mipmap/shanchu"
+        app:cornerLoadColor="@color/alpha_black_35"
+        app:cornerRadius="7dp" />
+</LinearLayout>

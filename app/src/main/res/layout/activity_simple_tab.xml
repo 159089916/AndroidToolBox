@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="多选LinearTabGroup（这里有两个Group，在代码中会将两个Group合并，组成一个多选组） ： "
+        android:textColor="@color/blue" />
+
+    <android.simple.toolbox.simple_tab.LinearTabGroup
+        android:id="@+id/tabGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:maxSelect="3">
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:contentGravity="right|centerVertical"
+            app:drawableGravity="right"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selected="true"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="支付宝"
+            app:textSize="15dp" />
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:contentGravity="bottom|centerHorizontal"
+            app:drawableGravity="bottom"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="微信"
+            app:textSize="15sp" />
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:contentGravity="left|centerVertical"
+            app:drawableGravity="left"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="银联"
+            app:textSize="15sp" />
+
+    </android.simple.toolbox.simple_tab.LinearTabGroup>
+
+
+    <android.simple.toolbox.simple_tab.LinearTabGroup
+        android:id="@+id/tabGroup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:contentGravity="right|centerVertical"
+            app:drawableGravity="right"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selected="true"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="POS机"
+            app:textSize="15dp" />
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            app:contentGravity="top|centerHorizontal"
+            app:drawableGravity="top"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="现金"
+            app:textSize="15sp" />
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            app:contentGravity="left|centerVertical"
+            app:drawableGravity="left"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="记账"
+            app:textSize="15sp" />
+
+    </android.simple.toolbox.simple_tab.LinearTabGroup>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="单选 RelativeTabGroup： "
+        android:textColor="@color/blue" />
+
+    <android.simple.toolbox.simple_tab.RelativeTabGroup
+        android:id="@+id/tabGroup3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        app:maxSelect="1">
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:contentGravity="left|centerVertical"
+            app:drawableGravity="right"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selected="true"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="item1"
+            app:textSize="15sp" />
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            app:contentGravity="left|centerVertical"
+            app:drawableGravity="top"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="item2"
+            app:textSize="15sp" />
+
+        <android.simple.toolbox.simple_tab.TabView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:contentGravity="left|centerVertical"
+            app:drawableGravity="left"
+            app:drawableHeight="15dp"
+            app:drawablePadding="10dp"
+            app:drawableWidth="15dp"
+            app:normalColor="@color/black"
+            app:normalDrawable="@mipmap/weixuanzhong"
+            app:selectedColor="@color/blue"
+            app:selectedDrawable="@mipmap/xuanzhong"
+            app:tabText="item3"
+            app:textSize="15sp" />
+    </android.simple.toolbox.simple_tab.RelativeTabGroup>
+
+</LinearLayout>

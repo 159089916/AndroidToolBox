@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TabView">
+        <attr name="drawableGravity">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="contentGravity">
+            <flag name="left" value="0x03" />
+            <flag name="top" value="0x30" />
+            <flag name="right" value="0x05" />
+            <flag name="bottom" value="0x50" />
+            <flag name="center0x11" value="0x11" />
+            <flag name="centerHorizontal" value="0x01" />
+            <flag name="centerVertical" value="0x10" />
+        </attr>
+        <attr name="tabText" format="string" />
+        <attr name="selectedDrawable" format="reference" />
+        <attr name="normalDrawable" format="reference" />
+        <attr name="selectedColor" format="reference" />
+        <attr name="normalColor" format="reference" />
+        <attr name="textSize" format="dimension" />
+        <attr name="drawableWidth" format="dimension" />
+        <attr name="drawableHeight" format="dimension" />
+        <attr name="drawablePadding" format="dimension" />
+        <attr name="onlyDrawable" format="boolean" />
+        <attr name="onlyText" format="boolean" />
+        <attr name="selected" format="boolean" />
+    </declare-styleable>
+
+    <attr name="maxSelect" format="integer" />
+
+    <declare-styleable name="LinearTabGroup">
+        <attr name="maxSelect" />
+    </declare-styleable>
+
+    <declare-styleable name="RelativeTabGroup">
+        <attr name="maxSelect" />
+    </declare-styleable>
+
+    <declare-styleable name="CornerImageView">
+        <attr name="cornerText" format="string" />
+        <attr name="cornerTextSize" format="dimension" />
+        <attr name="cornerTop" format="dimension" />
+        <attr name="cornerRight" format="dimension" />
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="hiddenCorner" format="boolean" />
+        <attr name="hiddenCornerText" format="boolean" />
+        <attr name="cornerBackground" format="reference|color" />
+        <attr name="cornerLoadColor" format="reference" />
+        <attr name="cornerTextColor" format="reference" />
+    </declare-styleable>
+
+
+</resources>
