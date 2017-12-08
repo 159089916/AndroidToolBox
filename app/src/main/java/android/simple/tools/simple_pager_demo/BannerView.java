@@ -16,6 +16,9 @@ public class BannerView extends SimplePager {
     private String url = "";
     private ImageView imageView;
 
+    /**
+     * 注意继承SimplePager类 必须实现一个带有Context入参的构造，且只能有这一个参数
+     * */
     public BannerView(Context context) {
         super(context, R.layout.banner);
     }
