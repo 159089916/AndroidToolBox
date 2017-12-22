@@ -43,6 +43,19 @@ public class LinearTabGroup extends LinearLayout implements TabGroup {
     private TabGroup.OnTabSelectedListener mTabSelectedListener;
 
 
+    @Override
+    public void removeAllViews() {
+        super.removeAllViews();
+        tabList.clear();
+    }
+
+    @Override
+    public void removeView(View view) {
+        super.removeView(view);
+        if (view instanceof TabView)
+            tabList.remove(view);
+    }
+
     public LinearTabGroup(Context context) {
         super(context);
         init();
