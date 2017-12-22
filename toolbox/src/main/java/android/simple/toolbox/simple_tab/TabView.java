@@ -34,7 +34,7 @@ public class TabView extends View {
     /**
      * 文字
      */
-    private String tabText;
+    private String tabText = "";
 
     /**
      * 选中状态图片
