@@ -172,7 +172,7 @@ public class LinearTabGroup extends LinearLayout implements TabGroup {
 
     @Override
     public void addSelected(int selectedIndex) {
-        notifyObservers(tabList.get(lastSelected));
+        notifyObservers(tabList.get(selectedIndex));
     }
 
     @Override

@@ -563,7 +563,7 @@ public class TabView extends View {
 
     @Override
     public void setSelected(boolean selected) {
-        isSelected = selected;
+        select();
         invalidate();
     }
 }
