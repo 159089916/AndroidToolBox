@@ -43,6 +43,21 @@ public class RelativeTabGroup extends RelativeLayout implements TabGroup {
      */
     private TabGroup.OnTabSelectedListener mTabSelectedListener;
 
+
+    @Override
+    public void removeAllViews() {
+        super.removeAllViews();
+        tabList.clear();
+    }
+
+    @Override
+    public void removeView(View view) {
+        super.removeView(view);
+        if (view instanceof TabView)
+            tabList.remove(view);
+    }
+
+
     @Override
     public int getId() {
         return super.getId();
