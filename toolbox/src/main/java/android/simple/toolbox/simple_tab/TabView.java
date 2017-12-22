@@ -474,6 +474,7 @@ public class TabView extends View {
 
     public void setTabText(String tabText) {
         this.tabText = tabText;
+        textWidth = mPaint.measureText(tabText);
         invalidate();
     }
 
@@ -518,6 +519,7 @@ public class TabView extends View {
 
     public void setTextSize(int size) {
         mPaint.setTextSize(size);
+        textWidth = mPaint.measureText(tabText);
         invalidate();
     }
 
