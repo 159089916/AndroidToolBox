@@ -125,6 +125,14 @@ public class CornerImageView extends ImageView {
      */
     private OnCornerClickListener mOnCornerClickListener;
 
+    /**
+     * 默认padding
+     */
+    private int paddingLeft = 0;
+    private int paddingTop = 0;
+    private int paddingRight = 0;
+    private int paddingBottom = 0;
+
     public CornerImageView(Context context) {
         super(context);
         init();
@@ -149,8 +157,8 @@ public class CornerImageView extends ImageView {
 
         if (textSize != 0)
             setCornerTextSize(textSize);
-        else
-            setCornerRadius(cornerRadius);
+
+        setCornerRadius(cornerRadius);
 
         int textColor = array.getResourceId(R.styleable.CornerImageView_cornerTextColor, 0);
         if (textColor != 0)
@@ -182,8 +190,17 @@ public class CornerImageView extends ImageView {
         mTextPaint.setAntiAlias(true);
         mTextPaint.setTextSize(textSize);
         mTextPaint.setColor(Color.WHITE);
+
     }
 
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        paddingLeft = getPaddingLeft();
+        paddingTop = getPaddingTop();
+        paddingRight = getPaddingRight();
+        paddingBottom = getPaddingBottom();
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -199,7 +216,10 @@ public class CornerImageView extends ImageView {
 //            } else {
             canvas.drawRect(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(), getHeight() - getPaddingBottom() - (getHeight() * ((float) currentProgress / 100)), mFloatPaint);
             String progress = currentProgress + "%";
+            if (currentProgress < 0)
+                progress = "上传失败";
             float progressWidth = mTextPaint.measureText(progress);
+
             canvas.drawText(progress, (getWidth() - progressWidth) / 2, (getHeight() + textHeight) / 2, mTextPaint);
 //            }
         }
@@ -284,6 +304,7 @@ public class CornerImageView extends ImageView {
 
 
     public void setOnCornerClickListener(OnCornerClickListener mOnCornerClickListener) {
+        setClickable(true);
         this.mOnCornerClickListener = mOnCornerClickListener;
     }
 
@@ -351,7 +372,7 @@ public class CornerImageView extends ImageView {
     public void setCornerRadius(float radius) {
         this.cornerRadius = radius;
         int padding = (int) radius;
-        setPadding(getPaddingLeft() + padding, getPaddingTop() + padding, getPaddingRight() + padding, getPaddingBottom() + padding);
+        setPadding(paddingLeft + padding, paddingTop + padding, paddingRight + padding, paddingBottom + padding);
     }
 
 
@@ -360,6 +381,18 @@ public class CornerImageView extends ImageView {
      */
     public void hiddenCorner() {
         hiddenCorner = true;
+        int padding = (int) cornerRadius;
+        setPadding(getPaddingLeft() + padding, getPaddingTop() + padding, getPaddingRight() + padding, getPaddingBottom() + padding);
+        invalidate();
+    }
+
+    /**
+     * 隐藏
+     */
+    public void showCorner() {
+        hiddenCorner = false;
+        int padding = (int) cornerRadius;
+        setPadding(getPaddingLeft() + padding, getPaddingTop() + padding, getPaddingRight() + padding, getPaddingBottom() + padding);
         invalidate();
     }
 

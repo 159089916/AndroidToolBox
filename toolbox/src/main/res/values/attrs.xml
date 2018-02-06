@@ -29,6 +29,7 @@
         <attr name="onlyDrawable" format="boolean" />
         <attr name="onlyText" format="boolean" />
         <attr name="selected" format="boolean" />
+        <attr name="switchMode" format="boolean" />
     </declare-styleable>
 
     <attr name="maxSelect" format="integer" />

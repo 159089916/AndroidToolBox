@@ -115,6 +115,8 @@ public class TabView extends View {
      */
     private float textWidth;
 
+    private boolean isOpenSwitchMode = false;
+
 
     /**
      * 取消选中
@@ -148,6 +150,8 @@ public class TabView extends View {
             onlyDrawable = false;
         isSelected = array.getBoolean(R.styleable.TabView_selected, false);
 
+        isOpenSwitchMode = array.getBoolean(R.styleable.TabView_switchMode, false);
+
         int resource = array.getResourceId(R.styleable.TabView_selectedDrawable, 0);
         //图片缩放
         if (resource != 0)
@@ -160,6 +164,10 @@ public class TabView extends View {
         drawBitmap = normalBitmap;
 
         array.recycle();
+
+        if (isOpenSwitchMode) {
+            hiddenText();
+        }
         init();
     }
 
@@ -330,17 +338,21 @@ public class TabView extends View {
     }
 
     public void select() {
-        if (isCancle) {
-            isCancle = false;
+        if (isOpenSwitchMode) {
+
+        } else {
+            if (isCancle) {
+                isCancle = false;
+                if (observer != null)
+                    observer.notifyObservers(this);
+                return;
+            }
+            mPaint.setColor(selectedColor);
+            drawBitmap = selectedBitmap;
+            isSelected = true;
             if (observer != null)
                 observer.notifyObservers(this);
-            return;
         }
-        mPaint.setColor(selectedColor);
-        drawBitmap = selectedBitmap;
-        isSelected = true;
-        if (observer != null)
-            observer.notifyObservers(this);
         postInvalidate();
     }
 
