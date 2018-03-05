@@ -381,8 +381,8 @@ public class CornerImageView extends ImageView {
      */
     public void hiddenCorner() {
         hiddenCorner = true;
-        int padding = (int) cornerRadius;
-        setPadding(getPaddingLeft() + padding, getPaddingTop() + padding, getPaddingRight() + padding, getPaddingBottom() + padding);
+//        int padding = (int) cornerRadius;
+//        setPadding(getPaddingLeft() + padding, getPaddingTop() + padding, getPaddingRight() + padding, getPaddingBottom() + padding);
         invalidate();
     }
 
