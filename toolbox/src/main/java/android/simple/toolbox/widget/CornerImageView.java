@@ -272,7 +272,7 @@ public class CornerImageView extends ImageView {
                 isClick = true;
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (event.getX() - startX > textSize || event.getY() - startY > textSize)
+                if (event.getX() - startX > 20 || event.getY() - startY > 20)
                     isClick = false;
                 break;
             case MotionEvent.ACTION_UP:
