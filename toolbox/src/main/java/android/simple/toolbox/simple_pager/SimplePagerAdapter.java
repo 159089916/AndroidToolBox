@@ -41,16 +41,9 @@ public class SimplePagerAdapter extends PagerBaseAdapter implements ViewPager.On
             pager.initSign(position);
             pager.onCreate(pager.rootView);
             return pager;
-        } catch (NoSuchMethodException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Constructor not found! The child of SimplePager need a Constructor(Context context)!");
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

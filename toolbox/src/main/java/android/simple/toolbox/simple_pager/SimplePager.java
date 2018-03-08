@@ -11,12 +11,15 @@ import android.view.View;
 public abstract class SimplePager {
     protected View rootView;
     protected Context context;
+    protected RecyclePagerAdapter.OnItemClickListener mOnItemClickListener;
     public int sign;
+    public int position;
     public int id;
 
-    /**
-     * 注意继承SimplePager类 必须实现一个带有Context入参的构造方法，且只能有这一个参数
-     */
+    public void setOnItemClickListener(RecyclePagerAdapter.OnItemClickListener listener) {
+        this.mOnItemClickListener = listener;
+    }
+
     public SimplePager(Context context, int layout) {
         if (context == null)
             throw new RuntimeException("the param \"context\" can not be null!");
@@ -35,6 +38,10 @@ public abstract class SimplePager {
 
     public void initSign(int sign) {
         this.sign = sign;
+    }
+
+
+    public void onRefresh() {
     }
 
     /**

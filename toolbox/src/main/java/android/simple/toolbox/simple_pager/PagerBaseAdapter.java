@@ -15,7 +15,7 @@ import java.util.List;
 
 public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager.OnPageChangeListener {
     protected OnPageSelectedListener listener;
-    protected int lastSelected = 0;
+    protected int selected = -1;
     protected List<Class> layoutList;
     protected List<SimplePager> pagerList;
     protected Context context;
@@ -34,8 +34,9 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
         viewPager.setAdapter(this);
     }
 
-    public void setOnPageSelectedListener(OnPageSelectedListener listener) {
+    public PagerBaseAdapter setOnPageSelectedListener(OnPageSelectedListener listener) {
         this.listener = listener;
+        return this;
     }
 
     public interface OnPageSelectedListener {
@@ -55,25 +56,36 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        SimplePager pager = getPager(position);
-        container.addView(pager.view());
-        pagerList.add(pager);
-        pager.onAttach();
-        return pager.view();
+        try {
+            SimplePager pager = getPager(position);
+
+            container.addView(pager.view());
+            pagerList.add(pager);
+            pager.onAttach();
+
+            return pager.view();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        SimplePager removePager = null;
-        for (SimplePager pager : pagerList) {
-            if (pager.sign == position)
-                removePager = pager;
-        }
-        if (removePager != null) {
-            removePager.onDetached();
-            container.removeView(removePager.rootView);
-            pagerList.remove(removePager);
-        }
+    public void destroyItem(final ViewGroup container, final int position, Object object) {
+        container.post(new Runnable() {
+            @Override
+            public void run() {
+                SimplePager removePager = null;
+                for (SimplePager pager : pagerList) {
+                    if (pager.position == position)
+                        removePager = pager;
+                }
+                if (removePager != null) {
+                    removePager.onDetached();
+                    container.removeView(removePager.rootView);
+                    pagerList.remove(removePager);
+                }
+            }
+        });
     }
 
 
@@ -87,24 +99,31 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
         if (listener != null)
             listener.onPageSelected(position);
         //向左移动
-        boolean isMoveLeft = position > lastSelected;
+        boolean isMoveLeft = position > selected;
 
         int invisiblePager = isMoveLeft ? position - 2 : position + 2;
 
+
         for (SimplePager pager : pagerList) {
-            if (pager.sign == position)
+            if (pager.position == position)
                 pager.onVisible();
             else if (invisiblePager > 0 && invisiblePager < layoutList.size()) {
-                if (pager.sign == position)
+                if (pager.position == position)
                     pager.onInvisible();
             }
         }
-        lastSelected = position;
+        selected = position;
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    public void onRefresh() {
+        for (SimplePager pager : pagerList) {
+            pager.onRefresh();
+        }
     }
 
     abstract SimplePager getPager(int position);

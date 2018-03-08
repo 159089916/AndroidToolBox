@@ -41,7 +41,7 @@ public class RelativeTabGroup extends RelativeLayout implements TabGroup {
     /**
      * 选中事件
      */
-    private TabGroup.OnTabSelectedListener mTabSelectedListener;
+    private OnTabSelectedListener mTabSelectedListener;
 
 
     @Override
@@ -168,7 +168,7 @@ public class RelativeTabGroup extends RelativeLayout implements TabGroup {
     }
 
     @Override
-    public void setOnTabSelectedListener(TabGroup.OnTabSelectedListener listener) {
+    public void setOnTabSelectedListener(OnTabSelectedListener listener) {
         this.mTabSelectedListener = listener;
     }
 

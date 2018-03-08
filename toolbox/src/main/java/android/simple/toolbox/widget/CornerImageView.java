@@ -323,6 +323,7 @@ public class CornerImageView extends ImageView {
         }
         if (cornerRadius == 0)
             setCornerRadius(textHeight);
+        hiddenCorner = false;
     }
 
     /**
