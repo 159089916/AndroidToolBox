@@ -137,13 +137,16 @@ public class RecyclePagerAdapter extends PagerBaseAdapter {
             if (mListener != null)
                 pager.setOnItemClickListener(mListener);
             pager.position = position;
+            pager.sign = position;
 
-            if (position == layoutList.size() - 1)
-                pager.sign = 0;
-            else if (position == 0)
-                pager.sign = dataList.size() - 1;
-            else
-                pager.sign = position - 1;
+            if (isCirculate) {
+                if (position == layoutList.size() - 1)
+                    pager.sign = 0;
+                else if (position == 0)
+                    pager.sign = dataList.size() - 1;
+                else
+                    pager.sign = position - 1;
+            }
             pager.onCreate(pager.rootView, dataList.get(pager.sign));
             return pager;
         } catch (Exception e) {
