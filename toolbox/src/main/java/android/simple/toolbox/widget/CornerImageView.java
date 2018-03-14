@@ -264,7 +264,7 @@ public class CornerImageView extends ImageView {
 
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean dispatchTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startX = event.getX();
@@ -273,13 +273,13 @@ public class CornerImageView extends ImageView {
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (event.getX() - startX > 20 || event.getY() - startY > 20)
-                    isClick = false;
+                    return super.dispatchTouchEvent(event);
                 break;
             case MotionEvent.ACTION_UP:
                 if (isClick && isEnabled()) {
                     if (cornerBmp == null) {
                         performClick();
-                        return true;
+                        return super.dispatchTouchEvent(event);
                     }
                     float endX = event.getX();
                     float endY = event.getY();
@@ -290,9 +290,8 @@ public class CornerImageView extends ImageView {
                 }
                 break;
         }
-        return true;
+        return super.dispatchTouchEvent(event);
     }
-
 
     /**
      * 角标click 监听
