@@ -73,4 +73,23 @@ public abstract class SimplePager {
      * 当Pager不可见时，会调用该方法
      */
     public abstract void onInvisible();
+
+    /**
+     * 用来和Activity onStart() 同步
+     */
+    public void onStart() {
+    }
+
+    /**
+     * 用来和Activity onPause() 同步
+     */
+    public void onPause() {
+    }
+
+    /**
+     * 用来和Activity onStop() 同步
+     */
+    public void onStop() {
+    }
+
 }

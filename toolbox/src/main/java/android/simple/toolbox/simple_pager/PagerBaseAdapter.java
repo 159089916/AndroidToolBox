@@ -129,4 +129,19 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
     abstract SimplePager getPager(int position);
 
 
+    public void onStart() {
+        if (selected > 0)
+            pagerList.get(selected).onStart();
+    }
+
+    public void onPause() {
+        if (selected > 0)
+            pagerList.get(selected).onPause();
+    }
+
+    public void onStop() {
+        if (selected > 0)
+            pagerList.get(selected).onStop();
+    }
+
 }
