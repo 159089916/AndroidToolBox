@@ -62,6 +62,9 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
             container.addView(pager.view());
             pagerList.add(pager);
             pager.onAttach();
+            if (pagerList.size() == 1) {
+                pager.isVisible = true;
+            }
 
             return pager.view();
         } catch (Exception e) {
