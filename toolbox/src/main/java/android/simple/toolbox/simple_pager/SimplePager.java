@@ -14,6 +14,7 @@ public abstract class SimplePager {
     protected RecyclePagerAdapter.OnItemClickListener mOnItemClickListener;
     public int sign;
     public int position;
+    public boolean isVisible = false;
     public int id;
 
     public void setOnItemClickListener(RecyclePagerAdapter.OnItemClickListener listener) {

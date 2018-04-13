@@ -101,16 +101,21 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
         //向左移动
         boolean isMoveLeft = position > selected;
 
-        int invisiblePager = isMoveLeft ? position - 2 : position + 2;
+//        int invisiblePager = isMoveLeft ? position - 2 : position + 2;
 
 
         for (SimplePager pager : pagerList) {
-            if (pager.position == position)
+            if (pager.position == position) {
+                pager.isVisible = true;
                 pager.onVisible();
-            else if (invisiblePager > 0 && invisiblePager < layoutList.size()) {
-                if (pager.position == position)
-                    pager.onInvisible();
+            } else if (pager.isVisible) {
+                pager.isVisible = false;
+                pager.onInvisible();
             }
+//            else if (invisiblePager > 0 && invisiblePager < layoutList.size()) {
+//                if (pager.position == position)
+//                    pager.onInvisible();
+//            }
         }
         selected = position;
     }
