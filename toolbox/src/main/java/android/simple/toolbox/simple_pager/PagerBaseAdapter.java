@@ -152,4 +152,12 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
             pagerList.get(selected).onStop();
     }
 
+    public void onDestory() {
+        if (pagerList.size() > 0) {
+            for (SimplePager pager : pagerList) {
+                pager.onDetached();
+            }
+        }
+    }
+
 }
