@@ -27,7 +27,7 @@ import android.widget.ImageView;
  * Created by Skyler on 2017/3/4.
  */
 
-public class CornerImageView extends ImageView {
+public class CornerImageView extends  ImageView {
     /**
      * 角标画笔
      */
@@ -278,15 +278,12 @@ public class CornerImageView extends ImageView {
             case MotionEvent.ACTION_UP:
                 if (isClick && isEnabled()) {
                     if (cornerBmp == null) {
-                        performClick();
                         return super.dispatchTouchEvent(event);
                     }
                     float endX = event.getX();
                     float endY = event.getY();
                     if ((endX >= clickStartX && endX <= clickEndX) && (endY >= clickStartY && endY <= clickEndY) && mOnCornerClickListener != null)
                         mOnCornerClickListener.onCornerClickListener(this);
-                    else
-                        performClick();
                 }
                 break;
         }

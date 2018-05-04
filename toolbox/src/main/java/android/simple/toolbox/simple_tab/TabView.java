@@ -128,6 +128,7 @@ public class TabView extends View {
         init();
     }
 
+
     public TabView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         //获取属性
@@ -135,6 +136,8 @@ public class TabView extends View {
         setLayoutGravity(array.getInt(R.styleable.TabView_drawableGravity, Gravity.LEFT));
         setContentGravity(array.getInt(R.styleable.TabView_contentGravity, contentGravity));
         tabText = array.getString(R.styleable.TabView_tabText);
+        if (tabText == null)
+            tabText = "";
         textSize = array.getDimensionPixelOffset(R.styleable.TabView_textSize, 10);
         drawablePadding = array.getDimensionPixelOffset(R.styleable.TabView_drawablePadding, 10);
         drawableWidth = array.getDimensionPixelOffset(R.styleable.TabView_drawableWidth, 10);
