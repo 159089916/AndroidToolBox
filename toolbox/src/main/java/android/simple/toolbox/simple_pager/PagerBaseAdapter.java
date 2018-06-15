@@ -15,7 +15,7 @@ import java.util.List;
 
 public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager.OnPageChangeListener {
     protected OnPageSelectedListener listener;
-    protected int selected = -1;
+    protected int selected = 0;
     protected List<Class> layoutList;
     protected List<SimplePager> pagerList;
     protected Context context;
@@ -138,17 +138,14 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
 
 
     public void onStart() {
-        if (selected > 0)
             pagerList.get(selected).onStart();
     }
 
     public void onPause() {
-        if (selected > 0)
             pagerList.get(selected).onPause();
     }
 
     public void onStop() {
-        if (selected > 0)
             pagerList.get(selected).onStop();
     }
 
