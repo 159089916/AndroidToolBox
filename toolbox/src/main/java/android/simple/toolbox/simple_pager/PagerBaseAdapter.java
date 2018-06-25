@@ -129,9 +129,11 @@ public abstract class PagerBaseAdapter extends PagerAdapter implements ViewPager
     }
 
     public void onRefresh() {
-        for (SimplePager pager : pagerList) {
-            pager.onRefresh();
-        }
+//        for (SimplePager pager : pagerList) {
+//            pager.onRefresh();
+//        }
+        if (selected >= 0 && selected < pagerList.size())
+            pagerList.get(selected).onRefresh();
     }
 
     abstract SimplePager getPager(int position);
